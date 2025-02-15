@@ -31,7 +31,7 @@ public class CarTests
     public void Create_InvalidRegistrationNumber_ThrowsInvalidRegistrationNumberException(string registrationNumber)
     {
         // Arrange
-        string color = "Blue"; // Color doesn't matter for this test
+        string color = "Blue";
 
         // Act & Assert
         Assert.Throws<InvalidRegistrationNumberException>(() => Car.Create(registrationNumber, color));
@@ -73,8 +73,10 @@ public class CarTests
         // Arrange
         string color = "Blue";
 
-        // Act & Assert
+        // Act
         var exception = Assert.Throws<InvalidRegistrationNumberException>(() => Car.Create(registrationNumber, color));
-        Assert.Equal(expectedMessage, exception.Message); // Check the exception message
+        
+        // Assert
+        Assert.Equal(expectedMessage, exception.Message);
     }
 }
